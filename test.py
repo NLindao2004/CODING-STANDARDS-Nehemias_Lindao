@@ -32,21 +32,24 @@ class Student:
         else:
             print(f"Error: Índice {index} fuera de rango.")
 
-    def report(self):  # broken format
-        print("ID: " + self.id)
-        print("Name is: " + self.name)
-        print("Grades Count: " + len(self.gradez))
-        print("Final Grade = " + self.letter)
+    def report(self):
+        print(f"ID: {self.student_id}")
+        print(f"Nombre: {self.name}")
+        print(f"Cantidad de calificaciones: {len(self.grades)}")
+        print(f"Promedio final: {self.calculate_average():.2f}")
+        print(f"Honor: {self.honor}")
 
 
-def startrun():
-    a = student("x", "")
-    a.addGrades(100)
-    a.addGrades("Fifty")  # broken
-    a.calcaverage()
-    a.checkHonor()
-    a.deleteGrade(5)  # IndexError
-    a.report()
+def main():
+
+    student = Student("001", "Juan Perez")
+    student.add_grade(100)
+    student.add_grade(85)
+    student.add_grade("Fifty")  # Error: no es una calificación válida
+    student.calculate_average()
+    student.check_honor()
+    student.delete_grade(5)  # Error: índice fuera de rango
+    student.report()
 
 
 startrun()
