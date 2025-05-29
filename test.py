@@ -1,7 +1,11 @@
+"""
+Este módulo define la clase Student para gestionar estudiantes y sus calificaciones 
+con sus metodos asociados.
+"""
+
 class Student:
     """
     Representa a un estudiante con un ID, nombre y lista de calificaciones.
-    Permite agregar calificaciones, calcular el promedio y generar un reporte.
     """
 
     def __init__(self, student_id, name):
