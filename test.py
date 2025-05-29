@@ -52,4 +52,5 @@ def main():
     student.report()
 
 
-startrun()
+if __name__ == "__main__":
+    main()
