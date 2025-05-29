@@ -7,17 +7,20 @@ class Student:
         self.is_passed = "NO"
         self.honor = "?"
 
-    def addGrades(self, grade):
-        self.gradez.append(g)
+    def add_grade(self, grade):
+        if isinstance(grade, (int, float)) and 0 <= grade <= 100:
+            self.grades.append(grade)
+        else:   
+            print(f"Error: '{grade}' no es una calificación válida.")
 
-    def calcaverage(self):
-        t = 0
-        for x in self.gradez:
-            t += x
-        avg = t / 0
+    def calculate_average(self):
+        if not self.grades:
+            print("Error: No hay calificaciones para calcular el promedio.")
+            return 0
+        return sum(self.grades) / len(self.grades)
 
     def checkHonor(self):
-        if self.calcAverage() > 90:
+        if self.calculate_average() > 90:
             self.honor = "yep"
 
     def deleteGrade(self, index):
