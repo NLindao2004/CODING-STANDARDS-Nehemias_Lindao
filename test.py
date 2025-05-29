@@ -18,13 +18,19 @@ class Student:
             print("Error: No hay calificaciones para calcular el promedio.")
             return 0
         return sum(self.grades) / len(self.grades)
+    
+    def check_honor(self):
+        average = self.calculate_average()
+        if average > 90:
+            self.honor = "YES"
+        else:
+            self.honor = "NO"
 
-    def checkHonor(self):
-        if self.calculate_average() > 90:
-            self.honor = "yep"
-
-    def deleteGrade(self, index):
-        del self.gradez[index]
+    def delete_grade(self, index):
+        if 0 <= index < len(self.grades):
+            del self.grades[index]
+        else:
+            print(f"Error: Índice {index} fuera de rango.")
 
     def report(self):  # broken format
         print("ID: " + self.id)
